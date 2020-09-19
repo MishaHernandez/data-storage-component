@@ -14,21 +14,46 @@
 body {
   margin: 0;
   font-size: 14px;
-  background: no-repeat url(../images/bg-mobile.png);
+  background: #000 no-repeat url(../images/bg-mobile.png);
+  background-size: cover;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+@media (min-width: 800px) {
+  body {
+    background: #000 no-repeat url(../images/bg-desktop.png);
+    background-size: cover;
+  }
 }
 
 .container {
   width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
 }
 
 .files {
-  background-color: var(--dark-blue);
+  width: 100%;
+  max-width: 540px;
   padding: 2rem;
   margin-bottom: 1rem;
   border-radius: 12px 6rem 12px 12px;
+  background-color: var(--dark-blue);
+}
+@media (min-width: 989px) {
+  .files {
+    margin-right: 2rem;
+  }
+}
+@media (min-width: 1025px) {
+  .files {
+    max-width: 350px;
+    margin-bottom: 0;
+  }
 }
 .files__logo {
   margin-bottom: 2rem;
@@ -55,11 +80,13 @@ body {
 }
 
 .disk {
-  background-color: var(--dark-blue);
-  color: var(--pale-blue);
+  width: 100%;
+  max-width: 540px;
   padding: 1.4rem 2rem;
   border-radius: 12px;
+  color: var(--pale-blue);
   font-family: var(--raleway);
+  background-color: var(--dark-blue);
 }
 .disk__message {
   text-align: center;
@@ -96,6 +123,23 @@ body {
   border-radius: 10px;
   right: calc(50% - 86px);
 }
+@media (min-width: 894px) {
+  .disk__bar-info {
+    right: 0;
+    bottom: 1.5rem;
+  }
+  .disk__bar-info::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid #fff;
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+  }
+}
 .disk__bar-info span {
   font-size: 12px;
   color: var(--grayish-blue);
@@ -111,11 +155,16 @@ body {
 }
 
 .attribution {
-  font-size: 11px;
+  font-family: var(--raleway);
+  font-size: 12px;
+  color: var(--pale-blue);
   text-align: center;
+  margin: 1rem;
+  position: absolute;
+  bottom: 0;
 }
 .attribution a {
-  color: #3e52a3;
+  color: var(--grayish-blue);
 }
 
 /*# sourceMappingURL=style.css.map */
